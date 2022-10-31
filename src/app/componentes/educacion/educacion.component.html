@@ -1,0 +1,92 @@
+<section id="educacion" class="educacion"  *ngIf="load"> 
+<div class="container mt-5" *ngIf="load"> 
+  <div class="titulo mb-5"> <h2>Educación</h2> </div>
+        <!-- TITULOS -->
+        <div class="row justify-content-center">
+              <div *ngFor="let educ of educacion" class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200"> 
+                      <button *ngIf="isAdmin" class="btn btn-outline-warning" (click)="openEduc(educEdit, educ.id)"> <i class="far fa-edit"> </i> </button> 
+                      <button *ngIf="isAdmin" class="btn btn-outline-danger" (click)="onDeleteEduc( educ.id)"><i class="fa-solid fa-trash-can"></i> </button> 
+                      <div class="icon"> <img src="{{educ.logourl}}" alt="" class="img-fluid rounded-circle"> </div>
+                        <h4 class="title">{{educ.titulo}}</h4>
+                        <p class="title">  <a target="_blank" href={{educ.url}}> {{educ.lugar}} </a> </p>
+                        <p class="title">{{educ.fecha}}</p>
+                        <p class="descripcion">{{educ.descripcion}}</p>
+              </div>      
+        </div>
+
+        <!-- CURSOS -->
+        <div class="row justify-content-center">
+          <div *ngFor="let curso of cursos" class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200"> 
+                  
+                  <div class="icon"> <img src="{{curso.logourl}}" alt="" class="img-fluid rounded-circle"> </div>
+                    <h4 class="title">{{curso.titulo}}</h4>
+                    <p class="title"> <a target="_blank" href={{curso.url}}> {{curso.lugar}} </a> </p>
+                    <p class="title">{{curso.fecha}}</p>
+                    <p class="descripcion">{{curso.descripcion}}</p>
+          </div>
+    </div>
+</div>
+
+
+
+<ng-template #educEdit>
+    <div class="offcanvas-header">
+      <h4 class="offcanvas-title">Educación</h4> <button type="button" class="btn-close" aria-label="Close"
+        (click)="offcanvasService.dismiss()"></button>
+    </div>
+  
+    <div class="offcanvas-body">
+  
+      <form (ngSubmit)="onUpdateEduc()" class="about-form" #formAbout="ngForm" novalidate>
+  
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">Título</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="educacion[idselecc].titulo" name="Titulo"> <span
+            class="focus-miInputBox"></span>
+        </div>
+  
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">Lugar</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="educacion[idselecc].lugar" name="Lugar"> <span
+            class="focus-miInputBox"></span>
+        </div>
+  
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">URL Logo</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="educacion[idselecc].logourl" name="URL del Logotipo"> <span
+            class="focus-miInputBox"></span>
+        </div>
+
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">URL</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="educacion[idselecc].url" name="URL"> <span
+            class="focus-miInputBox"></span>
+        </div>
+  
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">Fecha</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="educacion[idselecc].fecha" name="Fecha"> <span
+            class="focus-miInputBox"></span>
+        </div>
+  
+        <div class="form-floating form-group">
+          <textarea class="form-control miInputBox" placeholder="Descripción" id="floatingTextarea2" style="height: 200px"
+            [(ngModel)]="educacion[idselecc].descripcion" name="Descripción"> </textarea> <span
+            class="focus-miInputBox"></span>
+          <label for="floatingTextarea2">Descripción</label>
+        </div>
+  
+  
+        <div class="col-5 float-end form-group">
+          <button type="submit" class="btn btn-light" > Actualizar </button>
+        </div>
+  
+      </form>
+  
+    </div>
+  
+  </ng-template>
+  
+ 
+
+  </section>

@@ -1,0 +1,67 @@
+<section id="Experiencias" *ngIf="load">
+
+  <div class="container mt-5">
+    <div class="titulo"> <h2>Experiencias</h2> </div>
+
+ <div class="row mt-5">
+        <div class="col-md-6 col-xl-6" data-aos="fade-up" *ngFor="let exp of experiencia ">
+            <button *ngIf="isAdmin" class="btn btn-outline-warning" (click)="openExp(expEdit, exp.id)"> <i class="far fa-edit"> </i> </button> 
+            <button *ngIf="isAdmin" class="btn btn-outline-danger" (click)="onDeleteSkill( exp.id)"><i class="fa-solid fa-trash-can"></i> </button> 
+                <h4> {{exp.puesto}}</h4>
+                <h5> <a target="_blank" href={{exp.url}}> {{exp.lugar}} </a> </h5>
+                <p><em>{{exp.fecha}}</em></p>
+                <p>{{exp.descripcion}}</p>
+        </div>
+</div> 
+
+
+
+  </div>
+</section>
+
+  <ng-template #expEdit>
+    <div class="offcanvas-header">
+      <h4 class="offcanvas-title">Experiencias</h4> <button type="button" class="btn-close" aria-label="Close"
+        (click)="offcanvasService.dismiss()"></button>
+    </div>
+  
+    <div class="offcanvas-body">
+  
+      <form (ngSubmit)="onUpdateExp()" class="about-form" #formAbout="ngForm"  novalidate>
+
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">Puesto</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="experiencia[idselecc].puesto" name="Puesto"> <span class="focus-miInputBox"></span>
+        </div>
+
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">Lugar</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="experiencia[idselecc].lugar" name="Lugar"> <span class="focus-miInputBox"></span>
+        </div>
+
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">URL</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="experiencia[idselecc].url" name="URL"> <span class="focus-miInputBox"></span>
+        </div>
+
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">Fecha</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="experiencia[idselecc].fecha" name="Fecha"> <span class="focus-miInputBox"></span>
+        </div>
+
+         <div class="form-floating form-group">
+          <textarea class="form-control miInputBox" placeholder="Descripción" id="floatingTextarea2" style="height: 200px"
+            [(ngModel)]="experiencia[idselecc].descripcion" name="Descripción"> </textarea>     <span class="focus-miInputBox"></span>
+          <label for="floatingTextarea2">Descripción</label>
+        </div> 
+
+
+        <div class="col-5 float-end form-group">
+          <button type="submit" class="btn btn-light"  aTilt [tiltSettings]="tiltSettings" > Actualizar </button>
+        </div>
+
+      </form>
+
+    </div>
+    
+  </ng-template>

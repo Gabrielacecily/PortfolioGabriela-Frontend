@@ -1,0 +1,27 @@
+<header id="header">
+    <div class="container highlightTextIn">
+
+        <ul class="nav justify-content-center">
+            <li class="nav-item"> <a alt="Acerca de mí" routerLink="/acerca">Acerca de mí</a> </li>
+            <li class="nav-item"> <a alt="Hard and Soft skills" routerLink="/skills">Hard and Soft skills</a> </li>
+            <li class="nav-item"> <a alt="Experiencias" routerLink="/experiencias">Experiencias</a> </li>
+            <li class="nav-item"> <a alt="Educacion" routerLink="/educacion">Educacion</a> </li>
+
+            <li class="nav-item"> <a *ngIf="isLogged" (click)="onLogOut()" style="cursor: pointer;"
+                    alt="Cerrar Sesión">Cerrar Sesión </a>
+                <a *ngIf="!isLogged" (click)="openLogin(loginTemplate)" style="cursor: pointer;"
+                    alt="Iniciar Sesión">Iniciar Sesión </a>
+            </li>
+        </ul>
+    </div>
+
+    <h1 class="nombre">Gabriela Cecilia Comparin</h1>
+    <h2 class="titulo">FullStack Web Developer</h2>
+
+
+
+</header>
+
+<ng-template #loginTemplate>
+    <app-login></app-login>
+</ng-template>

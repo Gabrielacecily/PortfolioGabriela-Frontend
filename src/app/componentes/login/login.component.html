@@ -1,0 +1,27 @@
+<div class="login">
+
+
+        <form class="login-form"  #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+            <span class="login-form-titulo">
+                    Iniciar sesión
+            </span>
+
+            <div class="ingreso">
+                <input class="miInputBox" type="text" name="nombreUsuario" placeholder="Usuario" name="nombreUsuario" [(ngModel)]="nombreUsuario" required>
+                <span class="focus-miInputBox"> </span>
+                <span class="symbol-miInputBox"><i class="fa fa-user-tie" aria-hidden="true"></i> </span>
+            </div>
+
+            <div class="ingreso">
+                <input class="miInputBox" type="password" name="password" placeholder="Contraseña" [(ngModel)]="password" required>
+                <span class="focus-miInputBox"> </span>
+                <span class="symbol-miInputBox"> <i class="fa fa-lock" aria-hidden="true"></i> </span>
+            </div>
+            
+            <button class="btn miBoton" [disabled]="!f.valid" aTilt [tiltSettings]="tiltSettings"> Iniciar </button>
+
+
+        </form>
+
+
+</div>

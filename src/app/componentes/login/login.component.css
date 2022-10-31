@@ -1,0 +1,141 @@
+.login{
+  min-height: 40vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-135deg,  #962c8f, #f7a2ff);
+}
+
+
+.login-form-titulo {
+    font-family: Raleway;
+    font-size: 24px;
+    color: #e9e9e9;
+    line-height: 1.2;
+    text-align: center;
+  
+    width: 100%;
+    display: block;
+    padding-bottom: 34px;
+}
+
+.miBoton {
+  cursor: pointer;
+  font-family: Raleway;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+
+  width: 100%;
+  height: 50px;
+  border-radius: 25px; border: none;
+  background: #8a46b8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  margin-top: 20px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.miBoton:hover {
+  background: #390546;color: #fff;
+}
+.ingreso {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 15px;
+}
+
+.miInputBox {
+    font-family: Raleway;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+    outline: none;
+    border: none;
+    display: block;
+    width: 100%;
+    background: #e6e6e6;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+}
+
+  .focus-miInputBox {
+    display: block;
+    position: absolute;
+    border-radius: 25px;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 0px 0px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .miInputBox:focus + .focus-miInputBox {
+    -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
+    animation: anim-shadow 0.5s ease-in-out forwards;
+  }
+  
+  @-webkit-keyframes anim-shadow {
+    to {
+      box-shadow: 0px 0px 70px 25px;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes anim-shadow {
+    to {
+      box-shadow: 0px 0px 70px 25px;
+      opacity: 0;
+    }
+  }
+  
+  .symbol-miInputBox {
+    font-size: 15px;
+  
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    border-radius: 25px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 35px;
+    pointer-events: none;
+    color: #666666;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  
+  .miInputBox:focus + .focus-miInputBox + .symbol-miInputBox {
+    color: rgba(119, 15, 255, 0.8);
+    padding-left: 28px;
+  }
+  

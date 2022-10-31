@@ -1,0 +1,132 @@
+<section id="about" class="about">
+  <div class="container">
+    <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openAbout(aboutEdit)"><i
+        class="far fa-edit"> </i> </button>
+
+    <div class="row">
+      <div class="col-lg-4 mt-5" data-aos="fade-right" data-aos-delay="300">
+        <img
+          src="https://media-exp1.licdn.com/dms/image/C4E03AQF8nwfuaKlVnA/profile-displayphoto-shrink_200_200/0/1649106369895?e=1672876800&v=beta&t=tN_7ouNWDHa9IgP688oqDfkGWrV7RQDF7YUKR35cnb0 "
+          class="img-fluid fotoperfil shadow bg-body ">
+      </div>
+
+      <div class="col-lg-8 mt-5" data-aos="fade-left" data-aos-delay="300">
+        <h3>{{persona.titulo}}</h3>
+        <div class="row mt-5">
+          <div class="col-lg-6">
+            <ul>
+              <li> <strong>Website: </strong> <span> {{persona.web}}</span></li>
+              <li> <strong>Tel: </strong> <span> {{persona.telefono}}</span></li>
+              <li> <strong>Ciudad: </strong> <span> {{persona.ciudad}}</span></li>
+            </ul>
+          </div>
+          <div class="col-lg-6 ">
+            <ul>
+              <li> <strong>Título: </strong> <span> {{persona.titulo}}</span></li>
+              <li> <strong>e-mail: </strong> <span> {{persona.email}}</span></li>
+              <a class="btn shadow bg-body"
+                href="https://www.canva.com/design/DAFB1aZ1tVQ/view?utm_content=DAFB1aZ1tVQ/utm_campaign=designshare/utm_medium=embeds/utm_source=link"
+                target="_blank">
+                <i class="fa-solid fa-file-arrow-down"></i> Descargar CV
+              </a>
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container mt-5">
+    <div class="row ">
+
+      <div class="col-lg-3 col-sm-6" data-aos="fade-up">
+        <div class="count-box">
+          <i class="fa-regular fa-handshake"></i>
+          <p><strong>Empática</strong> </p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="count-box">
+          <i class="fa-regular fa-calendar-days"></i>
+          <p><strong>Responsable</strong> </p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="count-box">
+          <i class="fa-solid fa-gears"></i>
+          <p><strong>Trabajo en equipo</strong> </p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="count-box">
+          <i class="fa-regular fa-hand-back-fist"></i>
+          <p><strong>Determinada</strong> </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<ng-template #aboutEdit>
+
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title">Acerca de</h4> <button type="button" class="btn-close" aria-label="Close"
+      (click)="offcanvasService.dismiss()"></button>
+  </div>
+
+  <div class="offcanvas-body">
+
+    <form (ngSubmit)="onUpdateAcerca()" class="about-form" #formAbout="ngForm" novalidate>
+      <div class="form-floating mb-3 form-group">
+        <textarea class="form-control miInputBox" placeholder="Comentario" id="floatingTextarea2" style="height: 200px"
+          [(ngModel)]="persona.comentario" name="comentario"> </textarea> <span class="focus-miInputBox"></span>
+        <label for="floatingTextarea2">Comentario</label>
+      </div>
+
+      <div class="input-group mb-3 form-group">
+        <span class="input-group-text" id="inputGroup-sizing-default">Teléfono</span>
+        <input type="text" class="form-control miInputBox" [(ngModel)]="persona.telefono" name="telefono"> <span
+          class="focus-miInputBox"></span>
+      </div>
+
+      <div class="input-group mb-3 form-group">
+        <span class="input-group-text" id="inputGroup-sizing-default">Ciudad</span>
+        <input type="text" class="form-control miInputBox" [(ngModel)]="persona.ciudad" name="ciudad"> <span
+          class="focus-miInputBox"></span>
+      </div>
+
+      <div class="input-group mb-3 form-group">
+        <span class="input-group-text" id="inputGroup-sizing-default" placeholder="www.miweb.com.ar">Web</span>
+        <input type="text" class="form-control miInputBox" [(ngModel)]="persona.web" name="web"> <span
+          class="focus-miInputBox"></span>
+      </div>
+
+      <div class="input-group mb-3 form-group">
+        <span class="input-group-text" id="inputGroup-sizing-default" placeholder="email@email.com">Email</span>
+        <input type="email" class="form-control  miInputBox" id="exampleInputEmail1" [(ngModel)]="persona.email"
+          name="email"> <span class="focus-miInputBox"></span>
+      </div>
+
+      <div class="input-group mb-3 form-group">
+        <span class="input-group-text" id="inputGroup-sizing-default">Título</span>
+        <input type="text" class="form-control miInputBox" [(ngModel)]="persona.titulo" name="titulo"> <span
+          class="focus-miInputBox"></span>
+      </div>
+
+      <div class="col-5 float-end form-group">
+        <button type="submit" class="btn btn-light"> Actualizar </button>
+      </div>
+    </form>
+
+  </div>
+
+</ng-template>

@@ -1,0 +1,37 @@
+.container{
+   
+
+}
+.titulo{
+    text-align: center;
+    margin: 30px;
+    color: #063e74;
+}
+
+h5{
+    color: #063e74;
+}
+ 
+.skillnombre{
+    margin: 30px 0 5px 60px;
+}
+.progress{
+    margin: 5px 30px 30px 30px ;
+}
+
+
+.progress-bar {
+    /* Colors */
+    background-color: #A2D2FF;
+
+    /* Rounded border */
+    border-radius: 9999px;
+    padding: 0.25rem;
+} 
+
+.progress-bar__progress {
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

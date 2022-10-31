@@ -1,0 +1,54 @@
+
+  <section id="skills" class="skills section-bg"  *ngIf="load">
+    <div class="container">
+
+      <div class="section-title mt-5">
+        <div class="titulo"> <h2>Hard & Soft Skills</h2> </div>
+      </div>
+
+      <div class="row skills-content mt-5">
+        <div class="col-md-6 col-xl-6" data-aos="fade-up" *ngFor="let sk of skills "> 
+          
+            <button *ngIf="isAdmin" class="btn btn-outline-warning" (click)="openSkill(skillEdit, sk.id)"> <i class="far fa-edit"> </i> </button> 
+            <button *ngIf="isAdmin" class="btn btn-outline-danger" (click)="onDeleteSkill(sk.id)"><i class="fa-solid fa-trash-can"></i> </button> 
+            <h5> {{sk.nombreSkill}} </h5>
+            <div class="progress-bar mb-5" style="width: {{sk.nivel}}%" data-aos="fade-up" data-aos-delay="150">
+              <div class="progress-bar__progress progress-bar-striped progress-bar-animated" role="progressbar"  ></div>
+              <span class="skill"> <i class="val">{{sk.nivel}}%</i> </span>
+            </div> 
+         </div>
+      </div> 
+
+    </div> 
+  </section>
+
+
+    <!-- Formulario de Edicion -->
+
+    <ng-template #skillEdit>
+      <div class="offcanvas-header">
+        <h4 class="offcanvas-title">Skills</h4> <button type="button" class="btn-close" aria-label="Close"
+          (click)="offcanvasService.dismiss()"></button>
+      </div>
+    
+      <div class="offcanvas-body">
+    
+        <form (ngSubmit)="onUpdateSkill()" class="about-form" #formAbout="ngForm"  novalidate>
+  
+          <div class="input-group mb-3 form-group">
+            <span class="input-group-text" id="inputGroup-sizing-default">Skill</span>
+            <input type="text" class="form-control miInputBox" [(ngModel)]="skills[idselecc].nombreSkill" name="Skill"> <span class="focus-miInputBox"></span>
+          </div>
+  
+          <div class="input-group mb-3 form-group">
+            <span class="input-group-text" id="inputGroup-sizing-default">Nivel</span>
+            <input type="text" class="form-control miInputBox" [(ngModel)]="skills[idselecc].nivel" name="Nivel"> <span class="focus-miInputBox"></span>
+          </div>
+
+          <div class="col-5 float-end form-group">
+            <button type="submit" class="btn btn-light"  aTilt [tiltSettings]="tiltSettings" > Actualizar </button>
+          </div>
+        </form>
+      </div>
+    </ng-template>
+
